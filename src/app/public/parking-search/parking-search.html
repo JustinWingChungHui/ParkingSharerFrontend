@@ -1,0 +1,23 @@
+<form class="form-inline" method="POST" action="#" role="form">    
+    <div class="form-group">
+        <label class="control-label" for="location">Where</label>
+        <input id="location" required type="text" maxlength="100" class="form-control" 
+            [(ngModel)]="parkingSearch.location" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="distance">Furthest Distance (miles)</label>
+        <input id="distance" required type="number" maxlength="3" class="form-control"
+               [(ngModel)]="parkingSearch.distance" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+        <button (click)="onSearch($event)" id="parkingSearchSubmit" type="submit" class="btn btn-default btn-lg">
+            Search
+        </button>
+    </div>
+</form>
+
+<div *ngIf="errorMessage!=null" class="alert alert-danger">
+        {{ errorMessage }}
+</div>
+
