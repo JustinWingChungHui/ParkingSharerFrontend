@@ -3,14 +3,14 @@ export const environment = {
 
     region: 'eu-west-2',
 
-    identityPoolId: 'us-east-1:fbe0340f-9ffc-4449-a935-bb6a6661fd53',
-    userPoolId: 'us-east-1_PGSbCVZ7S',
-    clientId: 'hh5ibv67so0qukt55c5ulaltk',
+    identityPoolId: 'eu-west-2:3fffab5d-db35-4f61-af21-3e67a9a668e1',
+    userPoolId: 'eu-west-2_borpxCBVE',
+    clientId: '100v02mv3k2eokcq9qo7nghspr',
 
     rekognitionBucket: 'rekognition-pics',
     albumName: "usercontent",
     bucketRegion: 'eu-west-2',
 
-    ddbTableName: 'LoginTrail'
+    ddbTableName: 'LoginTrailparkingsharer'
 };
 

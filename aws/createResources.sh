@@ -6,13 +6,13 @@
 echo -n "Enter the name for your resources (must be all lowercase with no spaces) and press [ENTER]: "
 read ROOT_NAME
 
-BUCKET_NAME=cognitosample-$(echo "$ROOT_NAME" | tr '[:upper:]' '[:lower:]')
+BUCKET_NAME=$(echo "$ROOT_NAME" | tr '[:upper:]' '[:lower:]')
 TABLE_NAME=LoginTrail$ROOT_NAME
 
 ROLE_NAME_PREFIX=$ROOT_NAME
 POOL_NAME=$ROOT_NAME
 IDENTITY_POOL_NAME=$ROOT_NAME
-REGION=us-west-2
+REGION=eu-west-2
 EB_INSTANCE_TYPE=t2.small
 EB_PLATFORM=node.js
 CURR_DIR=$( cd $(dirname $0) ; pwd -P )
@@ -143,7 +143,7 @@ createS3Bucket() {
         else
             echo -n "The requested S3 bucket name is not available. Please enter a different name and try again : "
             read newName
-            BUCKET_NAME=cognitosample-$(echo "$newName" | tr '[:upper:]' '[:lower:]')
+            BUCKET_NAME=$(echo "$newName" | tr '[:upper:]' '[:lower:]')
             echo "Attempting to create bucket named $BUCKET_NAME"
             createS3Bucket
         fi
