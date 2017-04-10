@@ -3,8 +3,8 @@
 # Bucket name must be all lowercase, and start/end with lowecase letter or number
 # $(echo...) code to work with versions of bash older than 4.0
 
-echo -n "Enter the name for your resources (must be all lowercase with no spaces) and press [ENTER]: "
-read ROOT_NAME
+echo -n "Using parkingsharer as the name for your resources"
+ROOT_NAME="parkingsharer"
 
 BUCKET_NAME=$(echo "$ROOT_NAME" | tr '[:upper:]' '[:lower:]')
 TABLE_NAME=LoginTrail$ROOT_NAME
@@ -131,6 +131,8 @@ createS3Bucket() {
     aws s3 mb s3://$BUCKET_NAME/ --region $REGION 2>/tmp/s3-mb-status
     status=$?
 
+    echo "/tmp/s3-mb-status " /tmp/s3-mb-status 
+
     if [ $status -eq 0 ]
     then
         echo "S3 bucket successfully created"
@@ -160,6 +162,8 @@ uploadS3Bucket() {
         npm install
     fi
     ng build --prod ../
+
+    echo "aws s3 sync" $ROOT_DIR/dist/ s3://$BUCKET_NAME/
     aws s3 sync $ROOT_DIR/dist/ s3://$BUCKET_NAME/
 }
 
@@ -239,31 +243,9 @@ if [[ $ROOT_NAME =~ [[:upper:]]|[[:space:]] || -z "$ROOT_NAME" ]]; then
     exit 1
 else
     echo "All AWS resources will be created with [$ROOT_NAME] as part of their name"
-
-    PS3='Where would you like to deploy your application? '
-    options=("Elastic Beanstalk" "S3" "Quit")
-    select opt in "${options[@]}"
-    do
-        case $opt in
-            "Elastic Beanstalk")
-                provisionGlobalResources
-                createEBResources
-                printConfig
-                break
-                ;;
-            "S3")
-                provisionGlobalResources
-                createS3Bucket
-                printConfig
-                break
-                ;;
-            "Quit")
-                exit 1
-                ;;
-            *)
-                echo "Invalid option"
-                exit 1
-                ;;
-        esac
-    done
+    provisionGlobalResources
+    # createS3Bucket
+    uploadS3Bucket
+    printConfig
+    break
 fi

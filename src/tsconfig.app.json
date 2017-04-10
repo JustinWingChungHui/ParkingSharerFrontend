@@ -15,6 +15,7 @@
     "baseUrl": "",
     "types": []
   },
+  "files": [],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
