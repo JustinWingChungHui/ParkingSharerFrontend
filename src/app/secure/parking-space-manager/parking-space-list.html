@@ -1,0 +1,16 @@
+<h1 class="page-header">My Parking Spaces</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+        <tr *ngFor="let parkingSpace of parkingSpaces" class="active">
+            <td>{{ parkingSpace.feature_image }}</td>
+            <td>{{ parkingSpace.title }}</td>
+            <td>{{ parkingSpace.description }}</td>
+        </tr>
+
+    </table>
+</div>

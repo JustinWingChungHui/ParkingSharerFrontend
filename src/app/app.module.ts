@@ -9,6 +9,8 @@ import {routing} from "./app.routes";
 import {UserRegistrationService, UserLoginService, UserParametersService, CognitoUtil} from "./service/cognito.service";
 import {AwsUtil} from "./service/aws.service";
 import {ParkingSearchService} from "./service/parking-search.service";
+import {ErrorService} from "./service/error.service";
+import {ParkingSpaceManagerService} from "./service/parking-space-manager.service"
 
 import {HomeComponent, AboutComponent, HomeLandingComponent} from "./public/home.component";
 import {UseractivityComponent} from "./secure/useractivity/useractivity.component";
@@ -21,6 +23,7 @@ import {RegisterComponent} from "./public/auth/register/registration.component";
 import {ForgotPasswordStep1Component, ForgotPassword2Component} from "./public/auth/forgot/forgotPassword.component";
 import {LogoutComponent, RegistrationConfirmationComponent} from "./public/auth/confirm/confirmRegistration.component";
 import {ResendCodeComponent} from "./public/auth/resend/resendCode.component";
+import {ParkingSpaceListComponent} from "./secure/parking-space-manager/parking-space-list.component";
 import {ParkingSearchComponent} from "./public/parking-search/parking-search.component";
 
 
@@ -41,6 +44,7 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
         SecureHomeComponent,
         JwtComponent,
         AppComponent,
+        ParkingSpaceListComponent,
         ParkingSearchComponent
     ],
     imports: [
@@ -56,7 +60,9 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
         UserRegistrationService,
         UserLoginService,
         UserParametersService,
-        ParkingSearchService],
+        ParkingSearchService,
+        ParkingSpaceManagerService,
+        ErrorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

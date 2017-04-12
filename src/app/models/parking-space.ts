@@ -1,4 +1,4 @@
-export class MyProfileComponent{
+export class ParkingSpace{
 
     public id: String;
     public userid: String;    
