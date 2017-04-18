@@ -1,0 +1,40 @@
+<h1 class="page-header">Create New Parking Space</h1>
+
+<form (ngSubmit)="onSubmit()" #parkingSpaceForm="ngForm">
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="parkingSpace.title" name="title" #title="ngModel">
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          Name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" class="form-control" id="description" required [(ngModel)]="parkingSpace.description" name="description">
+    </div>
+
+    <div class="form-group">
+        <label for="address1">Address Line 1</label>
+        <input type="text" class="form-control" id="address1" required [(ngModel)]="parkingSpace.address1" name="address1">
+    </div>
+
+    <div class="form-group">
+        <label for="address2">Address Line 2</label>
+        <input type="text" class="form-control" id="address2" [(ngModel)]="parkingSpace.address2" name="address2">
+    </div>
+
+    <div class="form-group">
+        <label for="city">Town/City/Village</label>
+        <input type="text" class="form-control" id="city" required [(ngModel)]="parkingSpace.city" name="city">
+    </div>
+
+    <div class="form-group">
+        <label for="postcode">Postcode</label>
+        <input type="text" class="form-control" id="postcode" required [(ngModel)]="parkingSpace.postcode" name="postcode">
+    </div>  
+    
+    <button type="submit" class="btn btn-success" [disabled]="!parkingSpaceForm.form.valid">Create</button>
+    
+</form>

@@ -13,59 +13,74 @@ import 'rxjs/add/operator/toPromise';
 export class ParkingSpaceManagerService {
 
     private listUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/spaces';
-    private getUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/spaces/{id}';
+    private getUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/spaces/id';
     private createUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/space/create';
-    private updateUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/spaces/{id}';
+    private updateUrl = 'https://rkuv9bh1wj.execute-api.eu-west-2.amazonaws.com/prod/manager/spaces/id';
 
     constructor(private http: Http, private errorService: ErrorService) { }
 
-    list(identityKey: String): Promise<ParkingSpace[]> {
-            return this.http
-               .get(this.listUrl, { headers: this.getHeaders(identityKey) } )
-               .toPromise()
-               .then(this.extractData)
-               .catch(this.errorService.handleError);
+    list(identityKey: string): Promise<ParkingSpace[]> {
+
+        var requestOptions = this.getRequestOptions(identityKey);
+        requestOptions.method = "GET";   
+        
+        return this.http
+            .get(this.listUrl, requestOptions )
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.errorService.handleError);
     }
 
-    get(identityKey: String, parkingSpaceid: String): Promise<ParkingSpace> {
+    get(identityKey: string, parkingSpaceid: string): Promise<ParkingSpace> {
+
+        var requestOptions = this.getRequestOptions(identityKey);
+        requestOptions.method = "GET";       
+
+        var re = /id/gi; 
+        var url = this.getUrl.replace(re, parkingSpaceid);
+
         return this.http
-            .get(this.getUrl, this.getHeaders(identityKey))
+            .get(url, requestOptions)
             .toPromise()
             .then(this.extractData)
             .catch(this.errorService.handleError);  
     }
 
-    create(identityKey: String, parkingSpace: ParkingSpace): Promise<ParkingSpace> {
+    create(identityKey: string, parkingSpace: ParkingSpace): Promise<ParkingSpace> {
+
+        var requestOptions = this.getRequestOptions(identityKey);
+        requestOptions.method = "POST";
+
         return this.http
-            .post(this.createUrl, {
-                data: parkingSpace, 
-                headers: this.getHeaders(identityKey)
-            })
+            .post(this.createUrl, parkingSpace, requestOptions)
             .toPromise()
             .then(this.extractData)
             .catch(this.errorService.handleError);  
     }
 
-    update(identityKey: String, parkingSpace: ParkingSpace) {
+    update(identityKey: string, parkingSpace: ParkingSpace) {
+
+        var re = /id/gi; 
+        var url = this.getUrl.replace(re, parkingSpace.id);
 
         var requestOptions = this.getRequestOptions(identityKey);
         requestOptions.method = "PUT";
 
         return this.http
-            .put(this.createUrl, parkingSpace, requestOptions)
+            .put(url, parkingSpace, requestOptions)
             .toPromise()
             .then(this.extractData)
             .catch(this.errorService.handleError);  
     }
 
-    private getRequestOptions(identityKey: String) {
+    private getRequestOptions(identityKey: string) {
 
-        let headers = new Headers(
+        var headers = new Headers(
             { 
                 'Content-Type': 'application/json',
                 'Authorization': identityKey
             });
-        let options = new RequestOptions({ headers: headers });
+        var options = new RequestOptions({ headers: headers });
         
         return options;                    
     }

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Response }          from '@angular/http';
+import { Http, Headers, Response }    from '@angular/http';
 
 @Injectable()
 export class ErrorService {
     
+    constructor(private http: Http) { }
+
     handleError (error: Response | any) {
 
-        // TODO remote logging
+        // TODO remote logging with http
 
         let errMsg: string;
         if (error instanceof Response) {

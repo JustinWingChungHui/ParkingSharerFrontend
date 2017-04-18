@@ -4,8 +4,8 @@ import {HomeLandingComponent, AboutComponent, HomeComponent} from "./public/home
 import {SecureHomeComponent} from "./secure/landing/securehome.component";
 import {MyProfileComponent} from "./secure/profile/myprofile.component";
 import {JwtComponent} from "./secure/jwttokens/jwt.component";
-import {UseractivityComponent} from "./secure/useractivity/useractivity.component";
 import {ParkingSpaceListComponent} from "./secure/parking-space-manager/parking-space-list.component";
+import {ParkingSpaceCreateComponent} from "./secure/parking-space-manager/parking-space-create.component";
 import {AppComponent} from "./app.component";
 import {LoginComponent} from "./public/auth/login/login.component";
 import {RegisterComponent} from "./public/auth/register/registration.component";
@@ -47,8 +47,8 @@ const secureHomeRoutes: Routes = [
         {path: 'logout', component: LogoutComponent},
         {path: 'jwttokens', component: JwtComponent},
         {path: 'myprofile', component: MyProfileComponent},
-        {path: 'useractivity', component: UseractivityComponent},
         {path: 'parkingspacelist', component: ParkingSpaceListComponent},
+        {path: 'createparkingspace', component: ParkingSpaceCreateComponent},
         {path: '', component: MyProfileComponent}]
     }
 ];

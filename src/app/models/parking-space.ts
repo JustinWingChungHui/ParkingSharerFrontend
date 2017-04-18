@@ -1,19 +1,23 @@
+/**
+ * Class to represent a parking space
+ */
+
 export class ParkingSpace{
 
-    public id: String;
-    public userid: String;    
-    public active: Boolean;
-    public title: String;
-    public description: String;
+    public id: string;
+    public userid: string;    
+    public active: boolean;
+    public title: string;
+    public description: string;
 
-    public address1: String;
-    public address2: String;
-    public city: String;
-    public postcode: String;
+    public address1: string;
+    public address2: string;
+    public city: string;
+    public postcode: string;
     
-    public featured_image: String;
-    public pictures: Array<String>;
+    public featured_image: string;
+    public pictures: Array<string>;
     
-    public created: Number;
-    public updated: Number;
+    public created: number;
+    public updated: number;
 }

@@ -10,7 +10,7 @@ declare var AWS: any;
 export class MyProfileComponent implements LoggedInCallback {
 
     public parameters: Array<Parameters> = [];
-    public cognitoId: String;
+    public cognitoId: string;
 
     constructor(public router: Router, public userService: UserLoginService, public userParams: UserParametersService) {
         this.userService.isAuthenticated(this);

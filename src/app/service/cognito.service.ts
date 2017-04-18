@@ -1,5 +1,4 @@
 import {Injectable, Inject} from "@angular/core";
-import {DynamoDBService} from "./ddb.service";
 import {RegistrationUser} from "../public/auth/register/registration.component";
 import {environment} from "../../environments/environment";
 
@@ -211,8 +210,9 @@ export class UserRegistrationService {
 @Injectable()
 export class UserLoginService {
 
-    constructor(public ddb: DynamoDBService, public cognitoUtil: CognitoUtil) {
-    }
+    constructor( 
+        public cognitoUtil: CognitoUtil) {
+    }s
 
     authenticate(username: string, password: string, callback: CognitoCallback) {
         console.log("UserLoginService: starting the authentication")
@@ -296,7 +296,6 @@ export class UserLoginService {
 
     logout() {
         console.log("UserLoginService: Logging out");
-        this.ddb.writeLogEntry("logout");
         this.cognitoUtil.getCurrentUser().signOut();
 
     }

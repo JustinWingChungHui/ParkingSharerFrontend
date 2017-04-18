@@ -13,17 +13,16 @@ import {ErrorService} from "./service/error.service";
 import {ParkingSpaceManagerService} from "./service/parking-space-manager.service"
 
 import {HomeComponent, AboutComponent, HomeLandingComponent} from "./public/home.component";
-import {UseractivityComponent} from "./secure/useractivity/useractivity.component";
 import {MyProfileComponent} from "./secure/profile/myprofile.component";
 import {SecureHomeComponent} from "./secure/landing/securehome.component";
 import {JwtComponent} from "./secure/jwttokens/jwt.component";
-import {DynamoDBService} from "./service/ddb.service";
 import {LoginComponent} from "./public/auth/login/login.component";
 import {RegisterComponent} from "./public/auth/register/registration.component";
 import {ForgotPasswordStep1Component, ForgotPassword2Component} from "./public/auth/forgot/forgotPassword.component";
 import {LogoutComponent, RegistrationConfirmationComponent} from "./public/auth/confirm/confirmRegistration.component";
 import {ResendCodeComponent} from "./public/auth/resend/resendCode.component";
 import {ParkingSpaceListComponent} from "./secure/parking-space-manager/parking-space-list.component";
+import {ParkingSpaceCreateComponent} from "./secure/parking-space-manager/parking-space-create.component";
 import {ParkingSearchComponent} from "./public/parking-search/parking-search.component";
 
 
@@ -39,12 +38,12 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
         AboutComponent,
         HomeLandingComponent,
         HomeComponent,
-        UseractivityComponent,
         MyProfileComponent,
         SecureHomeComponent,
         JwtComponent,
         AppComponent,
         ParkingSpaceListComponent,
+        ParkingSpaceCreateComponent,
         ParkingSearchComponent
     ],
     imports: [
@@ -56,7 +55,6 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
     providers: [
         CognitoUtil,
         AwsUtil,
-        DynamoDBService,
         UserRegistrationService,
         UserLoginService,
         UserParametersService,
