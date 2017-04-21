@@ -11,9 +11,11 @@ import {ParkingSpaceManagerService} from "../../service/parking-space-manager.se
 })
 export class ParkingSpaceCreateComponent implements LoggedInCallback {
 
-    public idToken;
+    public idToken: string;
 
     public parkingSpace: ParkingSpace;
+
+    public errorMessage: string;
 
     constructor(public router: Router, 
                 public userService: UserLoginService, 
@@ -38,8 +40,9 @@ export class ParkingSpaceCreateComponent implements LoggedInCallback {
     }
 
     onSubmit() { 
-        this.parkingSpaceManagerService.create(this.idToken, this.parkingSpace);
-        this.router.navigate(['/securehome/parkingspacelist']);
+        this.parkingSpaceManagerService.create(this.idToken, this.parkingSpace)
+            .then(x => this.router.navigate(['/securehome/parkingspacelist']))
+            .catch(e => this.errorMessage = e);
     }
 
 

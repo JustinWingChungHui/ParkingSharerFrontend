@@ -21,6 +21,8 @@ export class ParkingSpaceManagerService {
 
     list(identityKey: string): Promise<ParkingSpace[]> {
 
+        console.log("in ParkingSpaceManagerService.list");
+
         var requestOptions = this.getRequestOptions(identityKey);
         requestOptions.method = "GET";   
         
@@ -47,6 +49,8 @@ export class ParkingSpaceManagerService {
     }
 
     create(identityKey: string, parkingSpace: ParkingSpace): Promise<ParkingSpace> {
+
+        console.log("in ParkingSpaceManagerService.create");
 
         var requestOptions = this.getRequestOptions(identityKey);
         requestOptions.method = "POST";
@@ -86,6 +90,10 @@ export class ParkingSpaceManagerService {
     }
 
     private extractData(res: Response) {
+
+        console.log("Response:");
+        console.log(res);
+        
         let body = res.json();
         return body.data || { };
     }

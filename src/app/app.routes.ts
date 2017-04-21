@@ -48,7 +48,7 @@ const secureHomeRoutes: Routes = [
         {path: 'jwttokens', component: JwtComponent},
         {path: 'myprofile', component: MyProfileComponent},
         {path: 'parkingspacelist', component: ParkingSpaceListComponent},
-        {path: 'createparkingspace', component: ParkingSpaceCreateComponent},
+        {path: 'parkingspacecreate', component: ParkingSpaceCreateComponent},
         {path: '', component: MyProfileComponent}]
     }
 ];
