@@ -29,7 +29,7 @@ export class ParkingSpaceManagerService {
         return this.http
             .get(this.listUrl, requestOptions )
             .toPromise()
-            .then(this.extractData)
+            .then(r => this.extractData(r) as ParkingSpace[])
             .catch(this.errorService.handleError);
     }
 
@@ -94,7 +94,11 @@ export class ParkingSpaceManagerService {
         console.log("Response:");
         console.log(res);
         
-        let body = res.json();
-        return body.data || { };
+        let data = res.json();
+
+        console.log("data:");
+        console.log(data);
+
+        return data;
     }
 }
