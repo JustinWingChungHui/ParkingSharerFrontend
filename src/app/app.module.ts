@@ -22,7 +22,7 @@ import {ForgotPasswordStep1Component, ForgotPassword2Component} from "./public/a
 import {LogoutComponent, RegistrationConfirmationComponent} from "./public/auth/confirm/confirmRegistration.component";
 import {ResendCodeComponent} from "./public/auth/resend/resendCode.component";
 import {ParkingSpaceListComponent} from "./secure/parking-space-manager/parking-space-list.component";
-import {ParkingSpaceCreateComponent} from "./secure/parking-space-manager/parking-space-create.component";
+import {ParkingSpaceEditComponent} from "./secure/parking-space-manager/parking-space-edit.component";
 import {ParkingSearchComponent} from "./public/parking-search/parking-search.component";
 
 
@@ -43,7 +43,7 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
         JwtComponent,
         AppComponent,
         ParkingSpaceListComponent,
-        ParkingSpaceCreateComponent,
+        ParkingSpaceEditComponent,
         ParkingSearchComponent
     ],
     imports: [

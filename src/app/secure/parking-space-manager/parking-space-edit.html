@@ -1,4 +1,6 @@
-<h1 class="page-header">Create New Parking Space</h1>
+
+<div *ngIf="newSpace; else elseBlock"><h2>Create New Parking Space</h2></div>
+<ng-template #elseBlock><h2>Edit Existing Parking Space</h2></ng-template>
 
 <form (ngSubmit)="onSubmit()" #parkingSpaceForm="ngForm">
 

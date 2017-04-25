@@ -43,8 +43,6 @@ export class IdTokenCallback implements Callback {
             .then(r => 
                 {
                     this.parkingSpaceListComponent.parkingSpaces = r;
-                    console.log("ParkingSpaceListComponent callback");
-                    console.log(r);
                 });
     }
 }

@@ -16,7 +16,7 @@
         <tr *ngFor="let parkingSpace of parkingSpaces" class="active">
             <td>{{ parkingSpace.feature_image }}</td>
             <td>{{ parkingSpace.title }}</td>
-            <td><a href="#" class="btn btn-default">edit</a></td>
+            <td><a [routerLink]="['/securehome/parkingspaceupdate/', parkingSpace.id]" class="btn btn-default">edit</a></td>
         </tr>
 
     </table>
