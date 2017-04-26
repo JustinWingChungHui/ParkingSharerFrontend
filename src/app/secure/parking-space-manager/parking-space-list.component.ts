@@ -3,11 +3,11 @@ import {LoggedInCallback, UserLoginService, CognitoUtil, Callback} from "../../s
 import {Router} from "@angular/router";
 import {ParkingSpace} from "../../models/parking-space"
 import {ParkingSpaceManagerService} from "../../service/parking-space-manager.service"
+import {LoadingComponent} from "../../shared/loading.component";
 
 @Component({
     selector: 'awscognito-angular2-app',
-    templateUrl: './parking-space-list.html',
-    styleUrls:['./../../shared/loading.css']
+    templateUrl: './parking-space-list.html'
 })
 export class ParkingSpaceListComponent implements LoggedInCallback {
 

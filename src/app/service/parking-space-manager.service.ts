@@ -95,10 +95,6 @@ export class ParkingSpaceManagerService {
         console.log(res);
         
         let data = res.json();
-
-        console.log("data:");
-        console.log(data);
-
         return data;
     }
 }

@@ -49,7 +49,7 @@ const secureHomeRoutes: Routes = [
         {path: 'myprofile', component: MyProfileComponent},
         {path: 'parkingspacelist', component: ParkingSpaceListComponent},
         {path: 'parkingspacecreate', component: ParkingSpaceEditComponent},
-        {path: 'parkingspaceupdate/:id', component: ParkingSpaceEditComponent},
+        {path: 'parkingspaceedit/:id', component: ParkingSpaceEditComponent},
         {path: '', component: MyProfileComponent}]
     }
 ];

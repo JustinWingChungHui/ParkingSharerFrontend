@@ -24,6 +24,7 @@ import {ResendCodeComponent} from "./public/auth/resend/resendCode.component";
 import {ParkingSpaceListComponent} from "./secure/parking-space-manager/parking-space-list.component";
 import {ParkingSpaceEditComponent} from "./secure/parking-space-manager/parking-space-edit.component";
 import {ParkingSearchComponent} from "./public/parking-search/parking-search.component";
+import {LoadingComponent} from "./shared/loading.component";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {ParkingSearchComponent} from "./public/parking-search/parking-search.com
         AppComponent,
         ParkingSpaceListComponent,
         ParkingSpaceEditComponent,
-        ParkingSearchComponent
+        ParkingSearchComponent,
+        LoadingComponent
     ],
     imports: [
         BrowserModule,

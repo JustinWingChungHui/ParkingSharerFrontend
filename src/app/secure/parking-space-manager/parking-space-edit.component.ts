@@ -20,6 +20,8 @@ export class ParkingSpaceEditComponent implements LoggedInCallback, OnInit  {
 
     public errorMessage: string;
 
+    public loading: boolean;
+
     constructor(public router: Router, 
                 private route: ActivatedRoute,
                 public userService: UserLoginService, 
@@ -40,13 +42,16 @@ export class ParkingSpaceEditComponent implements LoggedInCallback, OnInit  {
                 
                 if (p['id']) {
                     this.newSpace = false;
+                    this.loading = true;
                     this.parkingSpaceManagerService.get(this.idToken, p['id'])
                     .then(p => {
                         this.parkingSpace = p;
+                        this.loading = false;
                     });
                 } else {
                     this.newSpace = true;
                     this.parkingSpace = new ParkingSpace();
+                    this.loading = false;
                 }
             });
     }
