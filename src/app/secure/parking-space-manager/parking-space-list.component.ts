@@ -6,7 +6,8 @@ import {ParkingSpaceManagerService} from "../../service/parking-space-manager.se
 
 @Component({
     selector: 'awscognito-angular2-app',
-    templateUrl: './parking-space-list.html'
+    templateUrl: './parking-space-list.html',
+    styleUrls:['./../../shared/loading.css']
 })
 export class ParkingSpaceListComponent implements LoggedInCallback {
 
@@ -14,12 +15,15 @@ export class ParkingSpaceListComponent implements LoggedInCallback {
 
     public parkingSpaces: ParkingSpace[];
 
+    public loading: boolean;
+
     constructor(public router: Router, 
                 public userService: UserLoginService, 
                 public cognitoUtil: CognitoUtil,
                 public parkingSpaceManagerService: ParkingSpaceManagerService) {
         this.userService.isAuthenticated(this);
         console.log("in ParkingSpaceListComponent");
+        this.loading = true;
     }
 
     isLoggedIn(message: string, isLoggedIn: boolean) {
@@ -43,6 +47,7 @@ export class IdTokenCallback implements Callback {
             .then(r => 
                 {
                     this.parkingSpaceListComponent.parkingSpaces = r;
+                    this.parkingSpaceListComponent.loading = false;
                 });
     }
 }

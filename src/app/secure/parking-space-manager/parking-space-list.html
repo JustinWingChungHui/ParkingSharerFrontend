@@ -4,20 +4,14 @@
     <a [routerLink]="['/securehome/parkingspacecreate']" class="btn btn-success">Create New Parking Space</a>
 </p>
 
-
+<div *ngIf="loading;" class="loading"></div>
 
 <div class="table-responsive">
     <table class="table table-hover table-striped">
-        <tr>
-            <th></th>
-            <th>Title</th>
-            <th></th>
-        </tr>
         <tr *ngFor="let parkingSpace of parkingSpaces" class="active">
             <td>{{ parkingSpace.feature_image }}</td>
             <td>{{ parkingSpace.title }}</td>
             <td><a [routerLink]="['/securehome/parkingspaceupdate/', parkingSpace.id]" class="btn btn-default">edit</a></td>
         </tr>
-
     </table>
 </div>
